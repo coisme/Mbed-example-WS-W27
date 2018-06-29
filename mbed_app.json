@@ -1,0 +1,33 @@
+{
+    "macros": [
+        "MBEDTLS_USER_CONFIG_FILE=\"mbedTLSConfig_mbedOS.h\"",
+        "MBED_CLIENT_USER_CONFIG_FILE=\"mbed_cloud_client_user_config.h\"",
+        "MBED_CLOUD_CLIENT_USER_CONFIG_FILE=\"mbed_cloud_client_user_config.h\"",
+        "PAL_DTLS_PEER_MIN_TIMEOUT=5000",
+        "MBED_CONF_APP_MAIN_STACK_SIZE=4608"
+    ],
+    "target_overrides": {
+        "*": {
+            "target.features_add": ["NANOSTACK", "LOWPAN_ROUTER", "COMMON_PAL"],
+            "platform.stdio-baud-rate": 115200,
+            "platform.stdio-convert-newlines": true,
+            "mbed-trace.enable": null
+        }
+    },
+    "config": {
+        "developer-mode": {
+            "help": "Enable Developer mode to skip Factory enrollment",
+            "value": 1
+        },
+        "network-interface":{
+            "help": "options are ETHERNET, WIFI_ESP8266, WIFI_IDW0XX1, WIFI_ODIN, WIFI_RTW, WIFI_WIZFI310, WIFI_ISM43362, MESH_LOWPAN_ND, MESH_THREAD, CELLULAR_ONBOARD",
+            "value": "WIFI_ESP8266"
+        },
+        "wifi-ssid": {
+            "value": "\"SSID\""
+        },
+        "wifi-password": {
+            "value": "\"PASSWORD\""
+        }
+    }
+}
